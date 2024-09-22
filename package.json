@@ -19,8 +19,10 @@
     },
     "scripts": {
         "build": "npx vite build",
+        "build:dev": "npx vite build -w",
         "publish": "npm publish --access public",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "npx vitest",
+        "serve": "concurrently \"yarn build:dev\" \"yarn run test\""
     },
     "bin": {
         "clx": "dist/index.js"
@@ -37,19 +39,25 @@
         },
         "./autoload": {
             "import": "./dist/main.js"
+        },
+        "./log": {
+            "import": "./dist/logger.js"
+        },
+        "./prompt": {
+            "import": "./dist/prompt.js"
         }
     },
     "devDependencies": {
         "@types/node": "^22.5.5",
-        "@types/prompts": "^2.4.9",
         "@types/yargs": "^17.0.33",
+        "concurrently": "^9.0.1",
         "typescript": "~5.4.2",
         "vite": "^5.4.7",
-        "vite-plugin-dts": "^4.2.1"
+        "vite-plugin-dts": "^4.2.1",
+        "vitest": "^2.1.1"
     },
     "dependencies": {
         "glob": "^11.0.0",
-        "prompts": "^2.4.2",
         "winston": "^3.14.2",
         "yargs": "^17.7.2"
     },

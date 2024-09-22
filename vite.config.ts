@@ -12,6 +12,8 @@ export default defineConfig({
       entry: {
         main: resolve(__dirname, "src/engine/autoloader.ts"),
         engine: resolve(__dirname, "src/engine/index.ts"),
+        prompt: resolve(__dirname, "src/prompt/prompt.ts"),
+        logger: resolve(__dirname, "src/logger/logger.ts"),
         index: resolve(__dirname, "src/index.ts")
       },
       name: pkg.name,
